@@ -26,6 +26,7 @@ public class App {
         .filter(f -> f.getImporte() > 1000)
         .findFirst()
         .get();
+
     System.out.println("\n\nFacturas filtradas: " + filtroFactura.getImporte());
 
   }
