@@ -15,7 +15,7 @@ public class DemoService1 {
   }
 
   public Stream<Item> createStreamFromEntity() {
-    Item f1 = new Item("Item 1", 3000);
+    Item f1 = new Item("Item 1", 200);
     Item f2 = new Item("Item 2", 1000);
     Item f3 = new Item("Item 3", 300);
     Item f4 = new Item("Item 4", 2000);

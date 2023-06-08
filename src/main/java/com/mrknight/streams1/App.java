@@ -36,16 +36,37 @@ public class App {
     System.out.println("*** Sorted ***");
     svc1.createStreamFromArray().sorted().forEach(System.out::println);
 
+    // Some Stream Terminals operations
+    System.out.println("\n **** Terminals Operations ****\n");
+
+    // FindFirst: Return a Optional for de FIRST entry in the Stream
+    System.out.println("*** FindFirst ***");
+    System.out.println("\n\nItems filtradas: " + svc1.createStreamFromEntity()
+        .filter(f -> f.getImporte() > 1000)
+        .findFirst()
+        .get()
+        .getImporte());
+
+    // FindAny: Return a Optional for ANY entry in the Stream
+    System.out.println("*** FindAny ***");
+    System.out.println("\n\nFind any: " + svc1.createStreamFromEntity()
+        .filter(f -> f.getImporte() > 100)
+        .findAny()
+        .get()
+        .getImporte());
+
+    // Peek: Perform the specified op on EACH elem an return NEW STREAM. Normally is
+    // used to debug.
+    System.out.println("*** Peek ***");
+    svc1.createStreamFromEntity()
+        .map(f -> f.getImporte() * 10)
+        .peek(System.out::println)
+        .collect(Collectors.toList());
+
     System.out
         .println("*** Stream not modify source ***:: " + svc1.createStreamFromArray().collect(Collectors.toList()));
 
     // Best optimization, do not iterate whole list, only until find first condition
-    Item filtro = svc1.createStreamFromEntity()
-        .filter(f -> f.getImporte() > 1000)
-        .findFirst()
-        .get();
-
-    System.out.println("\n\nItems filtradas: " + filtro.getImporte());
 
   }
 }
