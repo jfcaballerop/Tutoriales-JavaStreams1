@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mrknight.streams1.model.Factura;
+import com.mrknight.streams1.model.Item;
 import com.mrknight.streams1.services.DemoService1;
 
 /**
@@ -28,16 +28,24 @@ public class App {
     System.out.println("*** Map ***");
     svc1.createStreamFromArray().map(s -> s.toUpperCase()).forEach(System.out::println);
 
+    // Distinct: Return stream with only unique elements
+    System.out.println("*** Distinct ***");
+    svc1.createStreamFromArray().distinct().forEach(System.out::println);
+
+    // Sorted: Return stream sorted according natural order
+    System.out.println("*** Sorted ***");
+    svc1.createStreamFromArray().sorted().forEach(System.out::println);
+
     System.out
         .println("*** Stream not modify source ***:: " + svc1.createStreamFromArray().collect(Collectors.toList()));
 
     // Best optimization, do not iterate whole list, only until find first condition
-    Factura filtroFactura = svc1.createStreamFromEntity()
+    Item filtro = svc1.createStreamFromEntity()
         .filter(f -> f.getImporte() > 1000)
         .findFirst()
         .get();
 
-    System.out.println("\n\nFacturas filtradas: " + filtroFactura.getImporte());
+    System.out.println("\n\nItems filtradas: " + filtro.getImporte());
 
   }
 }

@@ -5,27 +5,27 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import com.mrknight.streams1.model.Factura;
+import com.mrknight.streams1.model.Item;
 
 public class DemoService1 {
 
   public Stream<String> createStreamFromArray() {
-    String[] strArr = { "Val1", "Demo2", "Val3", "Demo4" };
+    String[] strArr = { "Val1", "Demo2", "Val3", "Demo4", "Val3", "Demo4" };
     return Arrays.stream(strArr);
   }
 
-  public Stream<Factura> createStreamFromEntity() {
-    Factura f1 = new Factura("Factura 1", 3000);
-    Factura f2 = new Factura("Factura 2", 1000);
-    Factura f3 = new Factura("Factura 3", 300);
-    Factura f4 = new Factura("Factura 4", 2000);
+  public Stream<Item> createStreamFromEntity() {
+    Item f1 = new Item("Item 1", 3000);
+    Item f2 = new Item("Item 2", 1000);
+    Item f3 = new Item("Item 3", 300);
+    Item f4 = new Item("Item 4", 2000);
 
-    List<Factura> lFact = new ArrayList<Factura>();
-    lFact.add(f1);
-    lFact.add(f2);
-    lFact.add(f3);
-    lFact.add(f4);
+    List<Item> lItem = new ArrayList<Item>();
+    lItem.add(f1);
+    lItem.add(f2);
+    lItem.add(f3);
+    lItem.add(f4);
 
-    return lFact.stream();
+    return lItem.stream();
   }
 }

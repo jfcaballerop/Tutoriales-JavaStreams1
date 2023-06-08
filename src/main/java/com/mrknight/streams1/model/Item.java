@@ -3,9 +3,9 @@ package com.mrknight.streams1.model;
 import lombok.Data;
 
 @Data
-public class Factura {
+public class Item {
 
-  private final String concepto;
+  private final String name;
   private final int importe;
 
 }
