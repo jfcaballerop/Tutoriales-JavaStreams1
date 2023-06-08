@@ -42,7 +42,8 @@ public class App {
     // FindFirst: Return a Optional for de FIRST entry in the Stream
     System.out.println("*** FindFirst ***");
     System.out.println("\n\nItems filtradas: " + svc1.createStreamFromEntity()
-        .filter(f -> f.getImporte() > 1000)
+        .filter(f -> f.getImporte() > 100)
+        .peek(System.out::println)
         .findFirst()
         .get()
         .getImporte());
